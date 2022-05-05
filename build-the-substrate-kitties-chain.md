@@ -599,8 +599,7 @@ To create it, you'll build out the following parts:
 - **Implement a helper function** for our Kitty struct.
 	**为我们的 Kitty 结构实现一个辅助函数**。
 
-1. #### Declare the custom enum
-   #### 声明自定义枚举
+1. #### Declare the custom enum -- 声明自定义枚举
 
    Replace ACTION item #2 with the following enum declaration:
    用下列的枚举声明替换ACTION #2:
@@ -1748,7 +1747,7 @@ Most importantly, at this point in the tutorial you should have all the knowledg
 ## Next steps -- 下一步
 
 Move on to [Part II](/tutorials/v3/kitties/pt2/) to connect your chain to the front-end template and create a user interface to visualize and interact with your Kitties!
-继续 [第二部分](/tutorials/v3/kitties/pt2/) 将您的区块链连接到前端模板，并创建一个可以与之交互的用户界面，来可视化您的 Kitties！
+继续[Part II](/tutorials/v3/kitties/pt2/)教程，将您的区块链连接到前端模板，并创建一个可以与之交互的用户界面，来可视化您的 Kitties！
 
 [transfer-currency-rustdocs]: https://crates.parity.io/frame_support/traits/tokens/currency/trait.Currency.html#tymethod.transfer
 [frame-balances-rustdocs]: https://crates.parity.io/frame_support/traits/tokens/currency/trait.Currency.html
