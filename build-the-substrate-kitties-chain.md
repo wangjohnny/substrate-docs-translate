@@ -81,8 +81,7 @@ Most of the code changes will be in `/pallets/kitties/src/lib.rs`.
 
    - **/node/** - 此文件夹包含node与runtime、node与RPC 客户端的所有交互逻辑。
    - **/pallets/** - 这里是您所有自定义pallet的所在地。
-   - **/runtime/** - This folder is where all pallets (both custom "internal" and "external" ones) are aggregated and implemented for the chain's runtime.
-	**/runtime/** - 所有pallet（包含自定义的“内部”和“外部”）聚合在此文件夹，并实现为区块链的runtime。
+   - **/runtime/** - 所有pallet（包含自定义的“内部”和“外部”）聚合在此文件夹，并实现为区块链的runtime。
 
 1. 在 `runtime/src/lib.rs` 中，您还会注意到我们修改后的模板pallet名称的实例仍然包含 `TemplateModule`。
  
