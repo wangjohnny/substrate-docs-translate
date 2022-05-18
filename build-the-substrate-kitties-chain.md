@@ -12,7 +12,7 @@ Part I 描述如何构建Kitties pallet，以及这个pallet怎样与你所创�
 - 写一个自定义FRAME pallet，并与你的节点runtime集成。
 - 学习如何创建与更新存储项(items)。
 - 编写pallet外部交易（extrinsics）与辅助函数。
-- Use the PolkadotJS API to connect a Substrate node to a custom a front-end. 用Polkadot JS API把自定义的前端与Substrate节点进行连接。
+- 用Polkadot JS API把自定义的前端与Substrate节点进行连接。
 
 本教程假设您已经在您的机器上安装了使用 Substrate 构建的先决条件。
 通过安装 [Rust and the Rust toolchain](/v3/getting-started/installation) 确保您已经为 Substrate 开发配置好了环境
@@ -40,9 +40,7 @@ Part I 描述如何构建Kitties pallet，以及这个pallet怎样与你所创�
 在从一个步骤移动到下一个步骤前，请确保您的pallet构建没有任何错误。
 使用[模板文件](https://github.com/substrate-developer-hub/substrate-docs/tree/main/static/assets/tutorials/kitties-tutorial)辅助你完成每一个部分。
 
-Most of the code changes will be in `/pallets/kitties/src/lib.rs`.
-如果你被某个问题卡住了，可以参考 [Substrate note template仓库的\`tutorials/solutions/kitties\`分支](https://github.com/substrate-developer-hub/substrate-node-template/tree/tutorials/solutions/kitties)上的完整源代码。
-大部分代码修改都是在 `/pallets/kitties/src/lib.rs` 文件中。
+如果你被某个问题卡住了，可以参考 [Substrate note template仓库的\`tutorials/solutions/kitties\`分支](https://github.com/substrate-developer-hub/substrate-node-template/tree/tutorials/solutions/kitties)上的完整源代码。大部分代码修改都是在 `/pallets/kitties/src/lib.rs` 文件中。
 
 ## 基本设置
 
