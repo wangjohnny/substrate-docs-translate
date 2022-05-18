@@ -290,7 +290,7 @@ cargo build --release
 
 ## 唯一性、自定义类型和存储映射
 
-您已经深入了解了使用 FRAME （**一个把各种模块化实体聚合为runtime的框架**）来开发pallet的一些关键概念，包括编写一个 [存储struct](/how-to-guides/v3/pallet-design/storage-value) and [实现随机数的trait](/how-to-guides/v3/pallet-design/randomness)。
+您已经深入了解了使用 FRAME （**一个把各种模块化实体聚合为runtime的框架**）来开发pallet的一些关键概念，包括编写一个[存储struct](/how-to-guides/v3/pallet-design/storage-value)和[实现随机数的trait](/how-to-guides/v3/pallet-design/randomness)。
 
 使用[辅助代码](https://github.com/substrate-developer-hub/substrate-docs/tree/main/static/assets/tutorials/kitties-tutorial/02-create-kitties.rs) 帮助您完成每一步。
 这将是接下来几个步骤的基础。
