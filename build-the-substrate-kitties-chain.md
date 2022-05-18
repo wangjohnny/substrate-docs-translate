@@ -284,7 +284,7 @@ cargo build --release
 您已经完成了这个系列的第一部分。
 在这个阶段，您学习了以下各种模式：
 
-- 自定义 Substrate node template与自定义pallet。
+- 自定义 Substrate node template 与自定义pallet。
 - 构建 Substrate 链，并检查pallet是否能通过编译。
 - 声明单个值 \`u64\` 存储项。
 
@@ -398,8 +398,8 @@ pub mod pallet {
 ### 编写Kitty Struct的框架代码
 
 Rust 中的 Struct 是一种有用的构造，有助于存储具有共性的数据。
-出于我们的目的，我们的 Kitty 将携带多个属性，我们可以将它们存储在单个结构中，而不是每个属性使用单独的存储项。
-这在尝试优化存储读取和写入时会派上用场，因此我们的runtime可以执行更少的读取/写入来更新多个值。
+为了达到我们的目的，我们的 Kitty 将携带多个属性，我们可以将它们存储在单个结构中，而不是每个属性使用单独的存储项。
+在尝试优化存储读取和写入时，这会派上用场，因此我们的runtime可以执行更少的读取/写入来更新多个值。
 阅读更多关于存储最佳实践的信息 [这里][storage-best-practice-kb]。
 
 #### 包含的信息
@@ -412,9 +412,9 @@ Rust 中的 Struct 是一种有用的构造，有助于存储具有共性的数�
 - **`gender`**：一个可以是 `Male` 或 `Female` 的枚举。
 - **`owner`**：指定单个所有者的account ID。
 
-#### Sketching out the types held by our struct -- 预估我们的结构所持有的类型
+#### 预估我们的结构所持有的类型
 
-从上节内容中结构体中的条目，我们可以推断出以下类型：
+看一下上面结构体的条目，我们可以推断出以下类型：
 
 - **`[u8; 16]`** for `dna` - 使用 16 个字节来表示猫咪的 DNA。
 - **`BalanceOf`** for `price` - 这是一个使用 FRAME 中 [`Currency` trait][currency-frame] 的自定义类型。
@@ -440,7 +440,8 @@ pub struct Kitty<T: Config> {
 }
 ```
 
-> 我们定义了\`<BalanceOf<T>>\` 和 \`AccountOf<T>\` 类型，并在 \`Kitty\` 中使用它们。如果你想知道 Rust 中的第一行是什么意思，它是定义一个类型别名 \`AccountOf<T>\`，它是指向 trait \`frame_system::Config\` 的关联类型 \`AccountId\` 的速写，这个类型需要绑定泛型\`T\`。\n\n更多关于这种类型的语法在 [the Rust book](https://doc.rust-lang.org/book/ch19-03-advanced-traits.html#specifying-placeholder-types-in-trait-definitions-with-associated-types)。
+> 我们定义了`<BalanceOf<T>>` 和 `AccountOf<T>` 类型，并在 `Kitty` 中使用它们。如果你想知道 Rust 中的第一行是什么意思，它是定义一个类型别名 `AccountOf<T>`，它是指向 trait `frame_system::Config` 的关联类型 `AccountId` 的速写，这个类型需要绑定泛型`T`。
+> 更多关于这种类型的语法在 [the Rust book](https://doc.rust-lang.org/book/ch19-03-advanced-traits.html#specifying-placeholder-types-in-trait-definitions-with-associated-types)。
 
 为了使用我们的结构（strutct），需要注意我们如何使用 `derive` 宏来包含 [各种辅助trait][prelude-traits-rustdocs] 。
 我们需要添加 `TypeInfo` 以使我们的结构可以访问此 trait。
