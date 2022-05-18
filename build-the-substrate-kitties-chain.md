@@ -1,3 +1,4 @@
+
 ![kitties-tutorial.png](https://img-blog.csdnimg.cn/img_convert/2c5c9cf44ba2bbb3157208827aaed8ee.png)
 欢迎来到Substrate Kitties课程。
 本课程将向您介绍如何构建一个可以创建并持有非同质化代币（NFT，这个NFT名称为Substrate Kitties）的区块链。课程分为部2部分：
@@ -139,13 +140,7 @@ Substrate 中的 [Pallets][pallets-kb] 用于定义运行时（runtime）逻辑�
 - `frame_support` 和 `frame_system` 依赖项。
 - 必需的 [attribute macros][macros-kb]（即配置trait、存储项和函数调用）。
 
-<Message
-  type={`yellow`}
-  title={`信息`}
-  text={`
-随着本教程进行到下一部分时，我们将更新其他依赖项。
-  `}
-/>
+> 随着本教程进行到下一部分时，我们将更新其他依赖项。
 
 这将是我们在本教程中构建的最简单 pallet 版本。
 这是本教程下一部分添加代码的起点。
@@ -448,14 +443,7 @@ pub struct Kitty<T: Config> {
 }
 ```
 
-<br />
-<Message
-  type="gray"
-  title="注意"
-  text={`
-我们定义了\`<BalanceOf<T>>\` 和 \`AccountOf<T>\` 类型，并在 \`Kitty\` 中使用它们。如果你想知道 Rust 中的第一行是什么意思，它是定义一个类型别名 \`AccountOf<T>\`，它是指向 trait \`frame_system::Config\` 的关联类型 \`AccountId\` 的速写，这个类型需要绑定泛型\`T\`。\n\n更多关于这种类型的语法在 [the Rust book](https://doc.rust-lang.org/book/ch19-03-advanced-traits.html#specifying-placeholder-types-in-trait-definitions-with-associated-types)。
-`}
-/>
+> 我们定义了\`<BalanceOf<T>>\` 和 \`AccountOf<T>\` 类型，并在 \`Kitty\` 中使用它们。如果你想知道 Rust 中的第一行是什么意思，它是定义一个类型别名 \`AccountOf<T>\`，它是指向 trait \`frame_system::Config\` 的关联类型 \`AccountId\` 的速写，这个类型需要绑定泛型\`T\`。\n\n更多关于这种类型的语法在 [the Rust book](https://doc.rust-lang.org/book/ch19-03-advanced-traits.html#specifying-placeholder-types-in-trait-definitions-with-associated-types)。
 
 为了使用我们的结构（strutct），需要注意我们如何使用 `derive` 宏来包含 [各种辅助trait][prelude-traits-rustdocs] 。
 我们需要添加 `TypeInfo` 以使我们的结构可以访问此 trait。
@@ -497,7 +485,7 @@ use scale_info::TypeInfo;
     但是如何提供一种方法给 Kitty 结构设置一个性别值呢？
     为此，我们需要再学习一件事。
 
-#### 为Kitty结构实现个辅助函数
+1. #### 为Kitty结构实现个辅助函数
 
    Configuring a struct is useful in order to pre-define a value in our struct.
    For example, when setting a value in relation to what another function returns.
@@ -688,15 +676,9 @@ cargo build --release
 
 在这部分的最后，我们将确保代码编译没有错误，并在Polkadot JS Apps的UI中调用我们的 `create_kitty` 外部事务（extrinsic）功能。
 
-<Message
-  type={`yellow`}
-  title={`信息`}
-  text={`
-如果您有信心，您可以继续在前一部分的代码基线上构建。
+> 如果您有信心，您可以继续在前一部分的代码基线上构建。
 否则，请参考我们在 [这里](https://github.com/substrate-developer-hub/substrate-docs/tree/main/static/assets/tutorials/kitties-tutorial/03-dispatchables-and-events.rs)的启动基线代码。
 它也使用各种 “ACTION” 条目作为方法来指导您完成本节。
-  `}
-/>
 
 ### 公有与私有函数
 
@@ -831,15 +813,10 @@ pub fn mint(
 1. 使用 Substrate 的 StorageMap API 提供的 [`insert`][insert-rustdocs] 方法来存储实际的 Kitty 对象，并将Kitty对象与其 `kitty_id` 关联。
 1. 使用 StorageValue API 提供的 [`put`](/rustdocs/latest/frame_support/storage/trait.StorageValue.html#tymethod.put) 方法来存储最新的 Kitty 数量。
 
-<Message
-  type="gray"
-  title="快速回顾一下我们的所有存储项"
-  text={`
-- **\`<Kitties<T>>\`**: 通过存储Kitty对象及其Kitty ID，来存储Kitty独一无二的特性（trait）与价格。
-- **\`<KittyOwned<T>>\`**: 跟踪持有Kitty的所有账号。
-- **\`<CountForKitties<T>>\`**: 所有现存Kitty的总数。
-`}
-/>
+> 快速回顾一下我们的所有存储项
+> - **\`<Kitties<T>>\`**: 通过存储Kitty对象及其Kitty ID，来存储Kitty独一无二的特性（trait）与价格。
+> - **\`<KittyOwned<T>>\`**: 跟踪持有Kitty的所有账号。
+> - **\`<CountForKitties<T>>\`**: 所有现存Kitty的总数。
 
 ### 实现pallet `Events`
 
@@ -905,16 +882,7 @@ Bought(T::AccountId, T::AccountId, T::Hash, BalanceOf<T>),
 Self::deposit_event(Event::Created(sender, kitty_id));
 ```
 
-<br />
-<Message
-  type={`gray`}
-  title={`注意`}
-  text={`
-If you're building your codebase from the previous part (and haven't been using the helper file
-for this part) you'll need to add \`Ok(())\` and properly close the \`create_kitty\` dispatchable.
-假如你正在从前一部分（这部分的辅助文件还未使用）来构建你的代码基线，你需要添加\`Ok(())\`来正确结束可调度的 \`create_kitty\`
-  `}
-/>
+> 假如你正在从前一部分（这部分的辅助文件还未使用）来构建你的代码基线，你需要添加\`Ok(())\`来正确结束可调度的 \`create_kitty\`
 
 ### 错误处理
 
@@ -954,14 +922,7 @@ NotEnoughBalance,
 cargo build --release
 ```
 
-<br />
-<Message
-  type={`yellow`}
-  title={`信息`}
-  text={`
-假如你遇到错误，滚动你的终端，定位到发生第一个错误的地方，辨认发生错误的行，检查你是否遵守了每一个步骤。有时一个不匹配的花括号都会引发一大堆难以理解的错误。切记要仔细检查你的代码！
-  `}
-/>
+> 假如你遇到错误，滚动你的终端，定位到发生第一个错误的地方，辨认发生错误的行，检查你是否遵守了每一个步骤。有时一个不匹配的花括号都会引发一大堆难以理解的错误。切记要仔细检查你的代码！
 
 构建通过了么？
 
@@ -1019,12 +980,8 @@ cargo build --release
 
 ## 与你的Kitties应用交互
 
-Up until this point in the tutorial, you've built a chain capable of only creating and tracking the ownership of Kitties.
-Now that that's done, we want to make our runtime more like a game by introducing other functions like buying and selling Kitties.
-In order to achieve this, we'll first need to enable users to mark and update the price of their Kitties.
-Then we can add functionality to enable users to transfer, buy, and breed Kitties.
 到目前为止，您构建了一条仅能创建和跟踪 Kitties 所有权的链。
-既然已经完成了已有的功能，现在我们希望通过引入其他功能（例如购买和出售 Kitty）来使我们的runtime更像游戏。
+既然已经完成了这些功能，现在我们希望通过引入其他功能（例如购买和出售 Kitty）来使我们的runtime更像游戏。
 为了实现这一点，我们首先需要让用户能够标记和更新他们猫咪的价格。
 然后我们可以添加功能，使用户能够转移、购买和繁殖猫咪。
 
@@ -1036,7 +993,6 @@ Then we can add functionality to enable users to transfer, buy, and breed Kittie
 
 #### A. 检查Kitty所有者
 
-As we create functions which modify objects in storage, we should always check first that only the appropriate users can successfully execute the logic in these dispatchable functions.
 当我们给存储中对象的添加一个修改函数时，我们应该首先检查只有正确的用户才能成功执行这些可调度函数。
 
 所有权检查的常用模式如下所示：
@@ -1102,14 +1058,7 @@ object.value = new_value;
 <Object<T>>::insert(object_id, object);
 ```
 
-<br />
-<Message
-  type="gray"
-  title="注意"
-  text={`
-Rust希望你将一个变量声明为可变的（用\`mut\`关键字），这样无论何时你都可以变更这个变量的值。
-`}
-/>
+> Rust希望你将一个变量声明为可变的（用\`mut\`关键字），这样无论何时你都可以变更这个变量的值。
 
 **轮到你了！**
 
@@ -1298,14 +1247,7 @@ Self::transfer_kitty_to(&kitty_id, &buyer)?;
 Self::deposit_event(Event::Bought(buyer, seller, kitty_id, bid_price));
 ```
 
-<br />
-<Message
-  type="gray"
-  title="注意"
-  text={`
-上述两种操作，\`T::Currency::transfer()\` 和 \`Self::transfer_kitty_to()\` 都可能失败，这就是为什么我们在每种情况下都会检查返回结果。 如果返回了\`Err\`，我们将立即从函数返回。 为了让存储与这些潜在变更保持一致，我们还将用\`#[transactional]\`标注函数。
-`}
-/>
+> 上述两种操作，\`T::Currency::transfer()\` 和 \`Self::transfer_kitty_to()\` 都可能失败，这就是为什么我们在每种情况下都会检查返回结果。 如果返回了\`Err\`，我们将立即从函数返回。 为了让存储与这些潜在变更保持一致，我们还将用\`#[transactional]\`标注函数。
 
 ### 繁殖 Kitty
 
