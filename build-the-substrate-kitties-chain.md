@@ -1,8 +1,11 @@
+![kitties-tutorial.png](https://img-blog.csdnimg.cn/img_convert/2c5c9cf44ba2bbb3157208827aaed8ee.png)
 欢迎来到Substrate Kitties课程。
 本课程将向您介绍如何构建一个可以创建并持有非同质化代币（NFT，这个NFT名称为Substrate Kitties）的区块链。课程分为部2部分：
-Part I describes how to build the Kitties pallet, including the functionality to interact with the Kitties you create.
+
 Part I 描述如何构建Kitties pallet，以及这个pallet怎样与你所创建的Substrate Kitties应用进行交互。
+
 [Part II](/tutorials/v3/kitties/pt2) 描述如何开发一个前端，这个前端需要与Part I 的Substrate Kitties区块链进行交互。
+
 ## 教程目标
 - 学习构建并运行Substrate节点的一些基本模式。
 - 写一个自定义FRAME pallet，并与你的节点runtime集成。
@@ -284,7 +287,7 @@ impl pallet_kitties::Config for Runtime {
 cargo build --release
 ```
 
-🎉**_恭喜您!_**🎉
+🎉 **_恭喜您!_** 🎉
 
 您已经完成了这个系列的第一部分。
 在这个阶段，您学习了以下各种模式：
@@ -450,7 +453,7 @@ pub struct Kitty<T: Config> {
   type="gray"
   title="注意"
   text={`
-我们定义了\`<BalanceOf<T>>\` 和 \`AccountOf<T>\` 类型，并在 \`Kitty\` 中使用它们。 如果你想知道 Rust 中的第一行是什么意思，它是定义一个类型别名 \`AccountOf<T>\`，它是指向 trait \`frame_system::Config\` 的关联类型 \`AccountId\` 的速写，这个类型需要绑定泛型\`T\`。\n\n更多关于这种类型的语法在 [the Rust book](https://doc.rust-lang.org/book/ch19-03-advanced-traits.html#specifying-placeholder-types-in-trait-definitions-with-associated-types)。
+我们定义了\`<BalanceOf<T>>\` 和 \`AccountOf<T>\` 类型，并在 \`Kitty\` 中使用它们。如果你想知道 Rust 中的第一行是什么意思，它是定义一个类型别名 \`AccountOf<T>\`，它是指向 trait \`frame_system::Config\` 的关联类型 \`AccountId\` 的速写，这个类型需要绑定泛型\`T\`。\n\n更多关于这种类型的语法在 [the Rust book](https://doc.rust-lang.org/book/ch19-03-advanced-traits.html#specifying-placeholder-types-in-trait-definitions-with-associated-types)。
 `}
 />
 
@@ -962,7 +965,7 @@ cargo build --release
 
 构建通过了么？
 
-🎉**_恭喜你!_**🎉
+🎉 **_恭喜您!_** 🎉
 
 这是我们 Kitties pallet的核心功能。
 在下一部分中，您将能够看到到目前为止您所构建的所有内容。
@@ -1396,7 +1399,7 @@ cargo build --release
 
 完成所有这些操作后，确认所有用户拥有正确数量的猫咪； 猫咪总数是正确的； 并且任何其他存储变量都能正确展示。
 
-🎉**_恭喜你!_**🎉
+🎉 **_恭喜您!_** 🎉
 
 您已经成功创建了一个功能齐全的 Substrate 链的后端，这个区块链能够创建和管理猫咪。
 我们的 Kitties 应用程序的基本功能也可以抽象为其他类似 NFT 的用例。
