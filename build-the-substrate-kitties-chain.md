@@ -251,9 +251,8 @@ Substrate 中的 [Pallets][pallets-kb] 用于定义运行时（runtime）逻辑�
 ### 添加存储项
 
 让我们向runtime添加一个最简单的逻辑：在runtime中存储一个变量的函数。
-为此，我们将使用Substrate提供的 [存储 API][storage-api-rustdocs]：[`StorageValue`][storagevalue-rustdocs]，这个API是一个[`StorageValue`][storagevalue-rustdocs]的trait。
+为此，我们将使用Substrate提供的 [存储 API][storage-api-rustdocs]：[`StorageValue`][storagevalue-rustdocs]，这个API是一个依赖[storage macro][storage-macro-kb]的trait。
 
-(/v3/runtime/storage#declaring-storage-items).
 就我们的目的而言，这意味着对于我们要声明的任何存储项，我们必须事先包含`#[pallet::storage]`宏。
 了解有关声明存储项的更多信息 [这里](/v3/runtime/storage#declaring-storage-items)。
 
