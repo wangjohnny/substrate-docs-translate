@@ -475,26 +475,23 @@ use scale_info::TypeInfo;
    }
    ```
 
-	注意在枚举声明，必须使用 [derive macro][derive-macro-rust]。
-    这将我们的枚举包装在数据结构中，它需要在我们的runtime中与其他类型进行交互。
-    为了使用 `Serialize` 和 `Deserialize`，您需要在 `pallets/kitties/Cargo.toml` 中添加 `serde` crate，使用匹配的版本作为Substrate upstream。
+   注意在枚举声明，必须使用 [derive macro][derive-macro-rust]。
+   这将我们的枚举包装在数据结构中，它需要在我们的runtime中与其他类型进行交互。
+   为了使用 `Serialize` 和 `Deserialize`，您需要在 `pallets/kitties/Cargo.toml` 中添加 `serde` crate，使用匹配的版本作为Substrate upstream。
 
-    太好了，我们现在知道如何创建自定义结构了。
-    但是如何提供一种方法给 Kitty 结构设置一个性别值呢？
-    为此，我们需要再学习一件事。
+   太好了，我们现在知道如何创建自定义结构了。
+   但是如何提供一种方法给 Kitty 结构设置一个性别值呢？
+   为此，我们需要再学习一件事。
 
 1. #### 为Kitty结构实现个辅助函数
 
-   Configuring a struct is useful in order to pre-define a value in our struct.
-   For example, when setting a value in relation to what another function returns.
-   In our case we have a similar situation where we need to configure our Kitty struct in such a way that sets `Gender` according to a Kitty's DNA.
-	为了在我们的结构中预定义一个值，配置一个结构是很有用的。
-    例如，在我们赋一个值时，对应有另外一个函数可以返回该值。
-    在我们的例子中，我们有类似的情况，我们需要配置 Kitty 结构，以便根据 Kitty 的 DNA 值来给`Gender`赋值。
+   为了在我们的结构中预定义一个值，配置一个结构是很有用的。
+   例如，在我们赋一个值时，对应有另外一个函数可以返回该值。
+   在我们的例子中，我们有类似的情况，我们需要配置 Kitty 结构，以便根据 Kitty 的 DNA 值来给`Gender`赋值。
 
    我们只会在[创建 Kitty](#write-the-create_kitty-dispatchable) 时使用这个函数。
-    无论如何，让我们现在就学习如何编写，并完成这个函数。
-    我们将创建一个名为 `gen_gender` 的公共函数来返回 `Gender` 类型，使用随机函数来选择`Gender` 枚举值。
+   无论如何，让我们现在就学习如何编写，并完成这个函数。
+   我们将创建一个名为 `gen_gender` 的公共函数来返回 `Gender` 类型，使用随机函数来选择`Gender` 枚举值。
 
    用下列代码片段替换ACTION #4：
 
@@ -547,10 +544,8 @@ use scale_info::TypeInfo;
    }
    ```
 
-   Here we have abstracted out the randomness generation implementation (`RandomnessCollectiveFlip`) from its interface (`Randomness<Self::Hash, Self::BlockNumber>` trait).
-   Check out this [how-to guide](/how-to-guides/v3/pallet-design/randomness) on implementing randomness in case you get stuck.
    在这里，我们从其接口（`Randomness<Self::Hash, Self::BlockNumber>` trait）中抽象出生成随机数的实现（`RandomnessCollectiveFlip`）。
-   看看这个实现随机性 [how-to-guide](/how-to-guides/v3/pallet-design/randomness) ，以防您遇到困难。
+   如何实现随机性，看看这个 [how-to-guide](/how-to-guides/v3/pallet-design/randomness) ，以防您遇到困难。
    
 1. 生成随机DNA
 
