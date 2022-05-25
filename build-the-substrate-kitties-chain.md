@@ -680,7 +680,6 @@ cargo build --release
 
 ### 公有与私有函数
 
-Before we dive right in, it's important to understand the pallet design decisions we'll be making around coding up our Kitty pallet's minting and ownership management capabilities.
 在我们深入研究之前，我们将围绕 Kitty  pallet的铸币和所有权管理功能进行编码，理解Kitty pallet的这些设计决策非常重要。
 
 作为开发人员，我们希望我们编写的代码高效且优雅。
@@ -691,8 +690,7 @@ Before we dive right in, it's important to understand the pallet design decision
 事实上，以这种方式构建可以被认为是一种附加的安全功能。
 想了解更多信息，可以查看关于编写和使用辅助函数的文档 [this how-to guide](/how-to-guides/v3/basics/helper-functions)。
 
-Before jumping into implementing this approach, let's first paint the big picture of what combining dispatchables and helper functions looks like.
-在开始实施这种方法之前，让我们首先描绘一下把可调用和辅助函数组合起来是什么样子。
+在开始实施这种方法之前，让我们首先描绘一下把可调度功能和辅助函数功能组合起来是什么样子。
 
 **`create_kitty`** 是一个可调度函数或外部事务（extrinsic）：
 
