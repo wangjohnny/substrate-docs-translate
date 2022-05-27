@@ -534,7 +534,7 @@ use scale_info::TypeInfo;
 
    为了展示这一点，我们将 `KittyRandomness` 类型设置为 [FRAME 的 `RandomnessCollectiveFlip`][randomness-collective-flip-frame] 的一个实例。
    方便的是，node template已经有一个 `RandomnessCollectiveFlip` pallet的实例。
-   您需要做的就是 **在运行时中的`runtime/src/lib.rs`中设置`KittyRandomness`类型**：
+   您需要做的就是 **在运行时的`runtime/src/lib.rs`代码中设置`KittyRandomness`类型**：
 
    ```rust
    impl pallet_kitties::Config for Runtime {
