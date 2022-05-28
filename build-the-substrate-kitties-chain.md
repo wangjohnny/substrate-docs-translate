@@ -1079,8 +1079,8 @@ Self::deposit_event(Event::PriceSet(sender, kitty_id, new_price));
 1. **可调度（dispatchable）函数**`transfer()`：这是一个被pallet暴露出来的可以公开调用的函数。
 1. **私有辅助函数** `transfer_kitty_to()`：这是一个私有辅助函数，在转移Kitty时，`transfer()`可以调用这个函数来执行存储的更新操作。
 
-以这种方式分离逻辑，使得私有 `transfer_kitty_to()` 函数可以被我们pallet的其他可调度函数重用，而无需复制代码。
-在我们的例子中，我们将在接下来要创建的 `buy_kitty` 可调度函数中重用这个函数。
+以这种方式分离逻辑，使得私有 `transfer_kitty_to()` 函数可以被pallet的其他可调度函数重用，而无需复制代码。
+在我们的例子中，接下来我们要创建的可调度函数 `buy_kitty` 会重用这个函数。
 
 #### `转移`
 
