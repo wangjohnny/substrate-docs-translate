@@ -530,7 +530,7 @@ use scale_info::TypeInfo;
 1. 指定runtime里的实际类型。
 	
    由于我们在pallet配置中添加了一个新类型，所以我们需要配置runtime，来设置这个新类型的具体类型。
-    如果我们想更改`KittyRandomness` 正在使用的算法，而不需要在pallet里修改它的使用位置，这可能会派上用场。
+   如果我们想更改`KittyRandomness` 正在使用的算法，而不需要在pallet中具体使用算法的地方去修改，这可能会派上用场。
 
    为了展示这一点，我们将 `KittyRandomness` 类型设置为 [FRAME 的 `RandomnessCollectiveFlip`][randomness-collective-flip-frame] 的一个实例。
    方便的是，node template已经有一个 `RandomnessCollectiveFlip` pallet的实例。
